@@ -1,27 +1,66 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      শুধু তোমারই জন্য
-    </title>
-  </head>
-  <body>
-    <blockquote id="quote">
-     
-    </blockquote>
-  </body>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <title>শুধু তোমারই জন্য</title>
+  <style>
+    body {
+      font-family: 'SolaimanLipi', Arial, sans-serif;
+      background: #ffe4e1;
+      color: #800000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 20px;
+    }
+    #quote {
+      font-size: 1.8rem;
+      max-width: 600px;
+      border: 2px solid #800000;
+      padding: 20px;
+      border-radius: 15px;
+      background: #fff0f0;
+      box-shadow: 2px 2px 10px #cc9999;
+      min-height: 150px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <blockquote id="quote">
+    অপেক্ষা করছে কবিতার জন্য...
+  </blockquote>
+
   <script>
-    const visible = new Date("2025-08-10 22:22:00 UTC+6").getTime();
-    function showPoem(){
-      const now = new Date();
-      if(now.getTime() > visible){
-       document.getElementById("quote").innerHTML = `
-        Kobita
-        `
+    const visibleTime = new Date("2025-08-10T22:22:00+06:00").getTime();
+    const quoteEl = document.getElementById("quote");
+
+    function showPoem() {
+      const now = new Date().getTime();
+      if (now >= visibleTime) {
+        quoteEl.innerHTML = `
+          তোমার জন্য এই কবিতা:<br><br>
+          হৃদয়ের গহীনে লুকানো আমার কথা,<br>
+          শুধু তোমারই জন্য লিখেছি রাত্রি-দিবস।<br>
+          হাসিতে ভরে যাক তোমার প্রতিটি দিন,<br>
+          ভালোবাসায় বেঁধে রাখব চিরকাল এই জীবন।<br><br>
+          শুভ জন্মদিন, প্রিয়! ❤
+        `;
+        clearInterval(timer);
       } else {
-        document.getElementById("quote").innerHTML = "Now is " + new Date()
+        let diff = visibleTime - now;
+        let hrs = Math.floor(diff / (1000 * 60 * 60));
+        let mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        let secs = Math.floor((diff % (1000 * 60)) / 1000);
+        quoteEl.textContent = `কবিতা আসবে ${hrs} ঘন্টা, ${mins} মিনিট, ${secs} সেকেন্ড পরে...`;
       }
     }
-    setInterval(showPoem, 1000);
+
+    const timer = setInterval(showPoem, 1000);
+    showPoem();
   </script>
+</body>
 </html>
