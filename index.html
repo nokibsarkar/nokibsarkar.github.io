@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>শুধু তোমারই জন্য</title>
+  <link href="https://cdn.msar.me/fonts/kalpurush/font.css" rel="stylesheet">
   <style>
     body {
-      font-family: 'SolaimanLipi', Arial, sans-serif;
+      font-family: 'Kalpurush', serif;
       background: #ffe4e1;
       color: #800000;
       display: flex;
@@ -15,17 +16,37 @@
       margin: 0;
       text-align: center;
       padding: 20px;
+      animation: bgPulse 5s ease-in-out infinite alternate;
     }
+
     #quote {
       font-size: 1.8rem;
       max-width: 600px;
       border: 2px solid #800000;
-      padding: 20px;
-      border-radius: 15px;
+      padding: 30px 25px;
+      border-radius: 20px;
       background: #fff0f0;
-      box-shadow: 2px 2px 10px #cc9999;
-      min-height: 150px;
-      line-height: 1.6;
+      box-shadow: 3px 3px 15px #cc9999;
+      min-height: 250px;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeIn 3s ease forwards;
+      white-space: pre-line;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes bgPulse {
+      0% {
+        background-color: #ffe4e1;
+      }
+      100% {
+        background-color: #ffd1d1;
+      }
     }
   </style>
 </head>
@@ -41,13 +62,21 @@
     function showPoem() {
       const now = new Date().getTime();
       if (now >= visibleTime) {
-        quoteEl.innerHTML = `
-          তোমার জন্য এই কবিতা:<br><br>
-          হৃদয়ের গহীনে লুকানো আমার কথা,<br>
-          শুধু তোমারই জন্য লিখেছি রাত্রি-দিবস।<br>
-          হাসিতে ভরে যাক তোমার প্রতিটি দিন,<br>
-          ভালোবাসায় বেঁধে রাখব চিরকাল এই জীবন।<br><br>
-          শুভ জন্মদিন, প্রিয়! ❤
+        quoteEl.style.animation = "fadeIn 3s ease forwards";
+        quoteEl.textContent = `
+সূর্য যখন মুচকি হেসে, তাকিয়ে দেখে তোমায়,
+মিষ্টি ভরা রোজ সকালে আদরে তন্বী ঘুমায়।
+প্রিয়া আমার তাকিয়ে থাকি, তোমার গালের দিকে
+মিষ্টি দুটো আপেল যেন, হাতছানিতে ডাকে।
+
+সোনা আমার, পাখি আমার, টিয়া ময়না ঘুঘু
+একনজরে দেখলে তোমায়, ক্লান্তি হয় লঘু
+এখনো আমার বিশ্বাস হয় না, কেম্নে পেলাম তোমায়
+এত মিষ্টি সরল মনের, মেয়ে পাবো কোথায়
+আদর করে আলতো ছুঁয়ে, তোমার গালটা ধরে
+চুকচুকিয়ে চুষে চুষে চুমুতে ইচ্ছে করে
+তিনবছরে কষ্ট দিয়েছি, ক্ষমা করে দিন।
+শুভ শুভ শুভ হোক, সোনার জন্মদিন।
         `;
         clearInterval(timer);
       } else {
@@ -55,6 +84,7 @@
         let hrs = Math.floor(diff / (1000 * 60 * 60));
         let mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         let secs = Math.floor((diff % (1000 * 60)) / 1000);
+        quoteEl.style.opacity = "1";
         quoteEl.textContent = `কবিতা আসবে ${hrs} ঘন্টা, ${mins} মিনিট, ${secs} সেকেন্ড পরে...`;
       }
     }
