@@ -136,26 +136,14 @@
   <script>
     const visibleTime = new Date("2025-08-10T22:22:00+06:00").getTime();
     const quoteEl = document.getElementById("quote");
-
+    const p = "4Ka44KeC4Kaw4KeN4KavIOCmr+CmluCmqCDgpq7gp4HgpprgppXgpr8g4Ka54KeH4Ka44KeHLCDgpqTgpr7gppXgpr/gp5/gp4cg4Kam4KeH4KaW4KeHIOCmpOCni+CmruCmvuCnnywK4Kau4Ka/4Ka34KeN4Kaf4Ka/IOCmreCmsOCmviDgprDgp4vgppwg4Ka44KaV4Ka+4Kay4KeHIOCmhuCmpuCmsOCnhyDgpqTgpqjgp43gpqzgp4Ag4KaY4KeB4Kau4Ka+4Kef4KWkCuCmquCnjeCmsOCmv+Cnn+CmviDgpobgpq7gpr7gprAg4Kak4Ka+4KaV4Ka/4Kef4KeHIOCmpeCmvuCmleCmvywg4Kak4KeL4Kau4Ka+4KawIOCml+CmvuCmsuCnh+CmsCDgpqbgpr/gppXgp4cK4Kau4Ka/4Ka34KeN4Kaf4Ka/IOCmpuCngeCmn+CniyDgpobgpqrgp4fgprIg4Kav4KeH4KaoLCDgprngpr7gpqTgppvgpr7gpqjgpr/gpqTgp4cg4Kah4Ka+4KaV4KeH4KWkCgrgprjgp4vgpqjgpr4g4KaG4Kau4Ka+4KawLCDgpqrgpr7gppbgpr8g4KaG4Kau4Ka+4KawLCDgpp/gpr/gp5/gpr4g4Kau4Kef4Kao4Ka+IOCmmOCngeCmmOCngQrgpo/gppXgpqjgppzgprDgp4cg4Kam4KeH4KaW4Kay4KeHIOCmpOCni+CmruCmvuCnnywg4KaV4KeN4Kay4Ka+4Kao4KeN4Kak4Ka/IOCmueCnnyDgprLgppjgp4EK4KaP4KaW4Kao4KeLIOCmhuCmruCmvuCmsCDgpqzgpr/gprbgp43gpqzgpr7gprgg4Ka54KefIOCmqOCmviwg4KaV4KeH4Kau4KeN4Kao4KeHIOCmquCnh+CmsuCmvuCmriDgpqTgp4vgpq7gpr7gp58K4KaP4KakIOCmruCmv+Cmt+CnjeCmn+CmvyDgprjgprDgprIg4Kau4Kao4KeH4KawLCDgpq7gp4fgp5/gp4cg4Kaq4Ka+4Kas4KeLIOCmleCni+CmpeCmvuCnnwrgpobgpqbgprAg4KaV4Kaw4KeHIOCmhuCmsuCmpOCniyDgppvgp4HgpoHgp5/gp4csIOCmpOCni+CmruCmvuCmsCDgppfgpr7gprLgpp/gpr4g4Kan4Kaw4KeHCuCmmuCngeCmleCmmuCngeCmleCmv+Cnn+CnhyDgpprgp4Hgprfgp4cg4Kaa4KeB4Ka34KeHIOCmmuCngeCmruCngeCmpOCnhyDgpofgpprgp43gppvgp4cg4KaV4Kaw4KeHCuCmpOCmv+CmqOCmrOCmm+CmsOCnhyDgppXgprfgp43gpp8g4Kam4Ka/4Kef4KeH4Kab4Ka/LCDgppXgp43gprfgpq7gpr4g4KaV4Kaw4KeHIOCmpuCmv+CmqOClpArgprbgp4Hgpq0g4Ka24KeB4KatIOCmtuCngeCmrSDgprngp4vgppUsIOCmuOCni+CmqOCmvuCmsCDgppzgpqjgp43gpq7gpqbgpr/gpqjgpaQ=" 
+    
+    const pD = decodeURIComponent(escape(atob(p)))
     function showPoem() {
       const now = new Date().getTime();
       if (now >= visibleTime) {
         quoteEl.style.animation = "fadeIn 3s ease forwards";
-        quoteEl.textContent = `
-সূর্য যখন মুচকি হেসে, তাকিয়ে দেখে তোমায়,
-মিষ্টি ভরা রোজ সকালে আদরে তন্বী ঘুমায়।
-প্রিয়া আমার তাকিয়ে থাকি, তোমার গালের দিকে
-মিষ্টি দুটো আপেল যেন, হাতছানিতে ডাকে।
-
-সোনা আমার, পাখি আমার, টিয়া ময়না ঘুঘু
-একনজরে দেখলে তোমায়, ক্লান্তি হয় লঘু
-এখনো আমার বিশ্বাস হয় না, কেম্নে পেলাম তোমায়
-এত মিষ্টি সরল মনের, মেয়ে পাবো কোথায়
-আদর করে আলতো ছুঁয়ে, তোমার গালটা ধরে
-চুকচুকিয়ে চুষে চুষে চুমুতে ইচ্ছে করে
-তিনবছরে কষ্ট দিয়েছি, ক্ষমা করে দিন।
-শুভ শুভ শুভ হোক, সোনার জন্মদিন।
-        `;
+        quoteEl.textContent = pD;
         clearInterval(timer);
       } else {
         let diff = visibleTime - now;
