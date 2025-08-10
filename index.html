@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>শুধু তোমারই জন্য</title>
-  <link href="https://cdn.msar.me/fonts/kalpurush/font.css" rel="stylesheet">
+  <link href="https://cdn.msar.me/fonts/kalpurush/font.css" rel="stylesheet" />
   <style>
     body {
       font-family: 'Kalpurush', serif;
@@ -17,23 +17,29 @@
       text-align: center;
       padding: 20px;
       animation: bgPulse 5s ease-in-out infinite alternate;
+      overflow: hidden;
+      position: relative;
     }
 
     #quote {
-      font-size: 1rem;
+      font-size: 1.2rem;
       max-width: 600px;
-      border: 2px solid #800000;
-      padding: 30px 25px;
-      border-radius: 20px;
+      border: 3px solid #800000;
+      padding: 30px 40px;
+      border-radius: 25px;
       background: #fff0f0;
-      box-shadow: 3px 3px 15px #cc9999;
-      min-height: 250px;
-      line-height: 1.8;
+      box-shadow: 3px 3px 20px #cc9999;
+      min-height: 300px;
+      line-height: 1.9;
       opacity: 0;
       animation: fadeIn 3s ease forwards;
       white-space: pre-line;
+      position: relative;
+      z-index: 2;
+      text-shadow: 1px 1px 3px #a33;
     }
 
+    /* Animations */
     @keyframes fadeIn {
       to {
         opacity: 1;
@@ -48,12 +54,84 @@
         background-color: #ffd1d1;
       }
     }
+
+    /* Confetti styles */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff4d4d;
+      opacity: 0.8;
+      top: 0;
+      animation: confettiFall linear forwards;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #ff9999;
+      z-index: 1;
+      filter: drop-shadow(0 0 1px #ff6666);
+    }
+    .confetti:nth-child(2n) {
+      background-color: #ffb347;
+      box-shadow: 0 0 6px #ffdb99;
+      filter: drop-shadow(0 0 1px #ffbb66);
+    }
+    .confetti:nth-child(3n) {
+      background-color: #ffd700;
+      box-shadow: 0 0 6px #fff099;
+      filter: drop-shadow(0 0 1px #ffe766);
+    }
+    .confetti:nth-child(4n) {
+      background-color: #ff69b4;
+      box-shadow: 0 0 6px #ffb0cc;
+      filter: drop-shadow(0 0 1px #ff88bb);
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Shine animation on text */
+    #quote::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 100%;
+      top: 0;
+      left: -25%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        transparent 100%
+      );
+      transform: skewX(-20deg);
+      animation: shine 3s infinite;
+      pointer-events: none;
+      border-radius: 25px;
+      z-index: 3;
+    }
+    #quote {
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes shine {
+      0% {
+        left: -25%;
+      }
+      100% {
+        left: 125%;
+      }
+    }
   </style>
 </head>
 <body>
-  <blockquote id="quote">
-    অপেক্ষা করছে কবিতার জন্য...
-  </blockquote>
+  <blockquote id="quote">অপেক্ষা করছে কবিতার জন্য...</blockquote>
 
   <script>
     const visibleTime = new Date("2025-08-10T22:22:00+06:00").getTime();
@@ -91,6 +169,21 @@
 
     const timer = setInterval(showPoem, 1000);
     showPoem();
+
+    // Create confetti pieces
+    const confettiCount = 50;
+    const colors = ['#ff4d4d', '#ffb347', '#ffd700', '#ff69b4'];
+    for(let i=0; i<confettiCount; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = (3 + Math.random() * 4) + 's';
+      confetti.style.width = confetti.style.height = (6 + Math.random() * 8) + 'px';
+      confetti.style.backgroundColor = colors[i % colors.length];
+      confetti.style.top = (-10 - Math.random() * 20) + 'px';
+      confetti.style.opacity = Math.random();
+      document.body.appendChild(confetti);
+    }
   </script>
 </body>
 </html>
