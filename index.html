@@ -54,96 +54,29 @@
         background-color: #ffd1d1;
       }
     }
-
-    /* Confetti styles */
-    .confetti {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: #ff4d4d;
-      opacity: 0.8;
-      top: 0;
-      animation: confettiFall linear forwards;
-      border-radius: 50%;
-      box-shadow: 0 0 6px #ff9999;
-      z-index: 1;
-      filter: drop-shadow(0 0 1px #ff6666);
-    }
-    .confetti:nth-child(2n) {
-      background-color: #ffb347;
-      box-shadow: 0 0 6px #ffdb99;
-      filter: drop-shadow(0 0 1px #ffbb66);
-    }
-    .confetti:nth-child(3n) {
-      background-color: #ffd700;
-      box-shadow: 0 0 6px #fff099;
-      filter: drop-shadow(0 0 1px #ffe766);
-    }
-    .confetti:nth-child(4n) {
-      background-color: #ff69b4;
-      box-shadow: 0 0 6px #ffb0cc;
-      filter: drop-shadow(0 0 1px #ff88bb);
-    }
-
-    @keyframes confettiFall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    /* Shine animation on text */
-    #quote::before {
-      content: '';
-      position: absolute;
-      width: 150%;
-      height: 100%;
-      top: 0;
-      left: -25%;
-      background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.6) 50%,
-        transparent 100%
-      );
-      transform: skewX(-20deg);
-      animation: shine 3s infinite;
-      pointer-events: none;
-      border-radius: 25px;
-      z-index: 3;
-    }
-    #quote {
-      position: relative;
-      overflow: hidden;
-    }
-    @keyframes shine {
-      0% {
-        left: -25%;
-      }
-      100% {
-        left: 125%;
-      }
-    }
   </style>
 </head>
 <body>
   <blockquote id="quote">অপেক্ষা...</blockquote>
 
   <script>
-    const visibleTime = new Date("2025-08-11T00:00:00+06:00").getTime();
+    const visibleTime = new Date("2025-08-10T00:00:00+06:00").getTime();
     const quoteEl = document.getElementById("quote");
     const p = "4Ka44KeC4Kaw4KeN4KavIOCmr+CmluCmqCDgpq7gp4HgpprgppXgpr8g4Ka54KeH4Ka44KeHLCDgpqTgpr7gppXgpr/gp5/gp4cg4Kam4KeH4KaW4KeHIOCmpOCni+CmruCmvuCnnywK4Kau4Ka/4Ka34KeN4Kaf4Ka/IOCmreCmsOCmviDgprDgp4vgppwg4Ka44KaV4Ka+4Kay4KeHIOCmhuCmpuCmsOCnhyDgpqTgpqjgp43gpqzgp4Ag4KaY4KeB4Kau4Ka+4Kef4KWkCuCmquCnjeCmsOCmv+Cnn+CmviDgpobgpq7gpr7gprAg4Kak4Ka+4KaV4Ka/4Kef4KeHIOCmpeCmvuCmleCmvywg4Kak4KeL4Kau4Ka+4KawIOCml+CmvuCmsuCnh+CmsCDgpqbgpr/gppXgp4cK4Kau4Ka/4Ka34KeN4Kaf4Ka/IOCmpuCngeCmn+CniyDgpobgpqrgp4fgprIg4Kav4KeH4KaoLCDgprngpr7gpqTgppvgpr7gpqjgpr/gpqTgp4cg4Kah4Ka+4KaV4KeH4KWkCgrgprjgp4vgpqjgpr4g4KaG4Kau4Ka+4KawLCDgpqrgpr7gppbgpr8g4KaG4Kau4Ka+4KawLCDgpp/gpr/gp5/gpr4g4Kau4Kef4Kao4Ka+IOCmmOCngeCmmOCngQrgpo/gppXgpqjgppzgprDgp4cg4Kam4KeH4KaW4Kay4KeHIOCmpOCni+CmruCmvuCnnywg4KaV4KeN4Kay4Ka+4Kao4KeN4Kak4Ka/IOCmueCnnyDgprLgppjgp4EK4KaP4KaW4Kao4KeLIOCmhuCmruCmvuCmsCDgpqzgpr/gprbgp43gpqzgpr7gprgg4Ka54KefIOCmqOCmviwg4KaV4KeH4Kau4KeN4Kao4KeHIOCmquCnh+CmsuCmvuCmriDgpqTgp4vgpq7gpr7gp58K4KaP4KakIOCmruCmv+Cmt+CnjeCmn+CmvyDgprjgprDgprIg4Kau4Kao4KeH4KawLCDgpq7gp4fgp5/gp4cg4Kaq4Ka+4Kas4KeLIOCmleCni+CmpeCmvuCnnwrgpobgpqbgprAg4KaV4Kaw4KeHIOCmhuCmsuCmpOCniyDgppvgp4HgpoHgp5/gp4csIOCmpOCni+CmruCmvuCmsCDgppfgpr7gprLgpp/gpr4g4Kan4Kaw4KeHCuCmmuCngeCmleCmmuCngeCmleCmv+Cnn+CnhyDgpprgp4Hgprfgp4cg4Kaa4KeB4Ka34KeHIOCmmuCngeCmruCngeCmpOCnhyDgpofgpprgp43gppvgp4cg4KaV4Kaw4KeHCuCmpOCmv+CmqOCmrOCmm+CmsOCnhyDgppXgprfgp43gpp8g4Kam4Ka/4Kef4KeH4Kab4Ka/LCDgppXgp43gprfgpq7gpr4g4KaV4Kaw4KeHIOCmpuCmv+CmqOClpArgprbgp4Hgpq0g4Ka24KeB4KatIOCmtuCngeCmrSDgprngp4vgppUsIOCmuOCni+CmqOCmvuCmsCDgppzgpqjgp43gpq7gpqbgpr/gpqjgpaQ=" 
     
     const pD = decodeURIComponent(escape(atob(p)))
+
+    function toBengaliNum(num) {
+      const bnNums = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+      return String(num).split('').map(d => bnNums[d] || d).join('');
+    }
+
     function showPoem() {
       const now = new Date().getTime();
       if (now >= visibleTime) {
         quoteEl.style.animation = "fadeIn 3s ease forwards";
         quoteEl.textContent = pD;
+        playBirthdayMusic();
         clearInterval(timer);
       } else {
         let diff = visibleTime - now;
@@ -151,26 +84,16 @@
         let mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         let secs = Math.floor((diff % (1000 * 60)) / 1000);
         quoteEl.style.opacity = "1";
-        quoteEl.textContent = `কবিতা আসবে ${hrs} ঘন্টা, ${mins} মিনিট, ${secs} সেকেন্ড পরে...`;
+        quoteEl.textContent = `অপেক্ষা করো ${toBengaliNum(hrs)} ঘন্টা, ${toBengaliNum(mins)} মিনিট, ${toBengaliNum(secs)} সেকেন্ড ধরে...`;
       }
     }
 
     const timer = setInterval(showPoem, 1000);
     showPoem();
 
-    // Create confetti pieces
-    const confettiCount = 50;
-    const colors = ['#ff4d4d', '#ffb347', '#ffd700', '#ff69b4'];
-    for(let i=0; i<confettiCount; i++) {
-      const confetti = document.createElement('div');
-      confetti.classList.add('confetti');
-      confetti.style.left = Math.random() * 100 + 'vw';
-      confetti.style.animationDuration = (3 + Math.random() * 4) + 's';
-      confetti.style.width = confetti.style.height = (6 + Math.random() * 8) + 'px';
-      confetti.style.backgroundColor = colors[i % colors.length];
-      confetti.style.top = (-10 - Math.random() * 20) + 'px';
-      confetti.style.opacity = Math.random();
-      document.body.appendChild(confetti);
+    function playBirthdayMusic() {
+      const audio = new Audio("https://cdn.pixabay.com/download/audio/2024/10/24/audio_47145285fd.mp3?filename=happy-birthday-254480.mp3");
+      audio.play();
     }
   </script>
 </body>
